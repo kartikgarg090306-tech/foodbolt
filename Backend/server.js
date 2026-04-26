@@ -111,23 +111,6 @@ app.get("/orders/:id", async (req, res) => {
   res.json(data);
 });
 
-app.get("/admin/orders", async (req, res) => {
-  const [data] = await db.query("SELECT * FROM orders");
-  res.json(data);
-});
-app.get("/admin/users", async (req, res) => {
-  const [data] = await db.query("SELECT id,name,wallet FROM users");
-  res.json(data);
-});
-app.get("/admin/stats", async (req, res) => {
-  const [orders] = await db.query("SELECT SUM(total) as revenue FROM orders");
-  const [users] = await db.query("SELECT COUNT(*) as users FROM users");
-
-  res.json({
-    revenue: orders[0].revenue || 0,
-    users: users[0].users
-  });
-});
 /* ================= ADMIN ================= */
 
 // stats
@@ -153,4 +136,8 @@ app.get("/admin/users", async (req, res) => {
   res.json(data);
 });
 
-app.listen(5000, () => console.log("🔥 Server running on 5000"));
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log("🔥 Server running on", PORT);
+});
