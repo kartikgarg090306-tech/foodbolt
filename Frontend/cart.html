@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Cart</h1>
+<div class="navbar">
+  <div class="logo">Your Cart</div>
+</div>
+
+<div id="cart" class="grid"></div>
+
+<h2 id="total" style="text-align:center;"></h2>
+
+<div style="text-align:center;">
+  <div class="payment-box">
+  <select id="payment" class="payment-select">
+    <option>💰 Wallet</option>
+    <option>📱 UPI</option>
+    <option>💳 Card</option>
+  </select>
+</div>
+
+<div class="cart-actions">
+  <button class="btn order-btn" onclick="placeOrder()">
+    Place Order 🚀
+  </button>
+
+  <button class="btn clear-btn" onclick="clearCart()">
+    Clear Cart ❌
+  </button>
+
+
+<script src="script.js"></script>
+<script>
+  loadCart();
+  showUser();
+</script>
+</body>
+<div class="bottom-nav">
+  <div class="nav-item" onclick="goHome()">🏠 Home</div>
+  <div class="nav-item" onclick="goOrders()">📜 Orders</div>
+  <div class="nav-item" onclick="goLogin()">🔑 Login</div>
+  <div class="nav-item" onclick="logout()">🚪 Logout</div>
+</div>
+</html>

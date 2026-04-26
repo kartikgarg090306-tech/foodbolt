@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>FoodBolt</title>
+
+  <!-- 🔥 FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- 🔥 CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- 🔝 NAVBAR -->
+<div class="navbar">
+  <div class="logo">🍔 FoodBolt</div>
+  <div class="user-info" id="user"></div>
+</div>
+
+<!-- 🍽️ RESTAURANTS -->
+<div id="restaurants" class="grid"></div>
+
+<!-- 🔻 BOTTOM NAV (ONLY ONE — NO DUPLICATE) -->
+<div class="bottom-nav">
+  <div class="nav-item" onclick="goHome()">🏠 Home</div>
+  <div class="nav-item" onclick="goOrders()">📜 Orders</div>
+  <div class="nav-item" onclick="goLogin()">🔑 Login</div>
+  <div class="nav-item" onclick="logout()">🚪 Logout</div>
+</div>
+
+<!-- 🔥 SCRIPT -->
+<script src="script.js"></script>
+<script>
+  loadRestaurants();
+  showUser();
+</script>
+</body>
+</html>

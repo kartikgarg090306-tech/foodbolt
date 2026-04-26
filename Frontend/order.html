@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Orders</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Order History</h1>
+
+<div id="orders"></div>
+
+<script src="script.js"></script>
+<script>
+  loadRestaurants();
+  showUser();
+</script>
+<script>
+  loadOrders();
+  showUser();
+</script>
+</body>
+<div class="bottom-nav">
+  <div class="nav-item" onclick="goHome()">🏠 Home</div>
+  <div class="nav-item" onclick="goOrders()">📜 Orders</div>
+  <div class="nav-item" onclick="goLogin()">🔑 Login</div>
+  <div class="nav-item" onclick="logout()">🚪 Logout</div>
+</div>
+</html>

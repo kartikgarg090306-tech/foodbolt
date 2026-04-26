@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+  <div class="logo">⚙️ Admin Panel</div>
+</div>
+
+<h2 style="text-align:center;">📊 Dashboard</h2>
+
+<div class="grid" id="stats"></div>
+
+<h2 style="text-align:center;">🧾 Orders</h2>
+<div id="orders"></div>
+
+<h2 style="text-align:center;">👥 Users</h2>
+<div id="users"></div>
+
+<script src="script.js"></script>
+<script>
+async function loadAdminStats() {
+  let div = document.getElementById("stats");
+
+  let res = await fetch("http://localhost:5000/admin/stats");
+  let data = await res.json();
+
+  console.log("Stats:", data); // 🔥 debug
+
+  div.innerHTML = `
+    <div class="card">💰 Revenue: ₹${data.revenue}</div>
+    <div class="card">👥 Users: ${data.users}</div>
+  `;
+}
+
+async function loadAllOrders() {
+  let div = document.getElementById("orders");
+
+  let res = await fetch("http://localhost:5000/admin/orders");
+  let data = await res.json();
+
+  console.log("Orders:", data);
+
+  div.innerHTML = "";
+
+  data.forEach(o => {
+    div.innerHTML += `
+      <div class="card">
+        <h3>Order #${o.id}</h3>
+        <p>Total: ₹${o.total}</p>
+        <p>${new Date(o.created_at).toLocaleString()}</p>
+      </div>
+    `;
+  });
+}
+
+async function loadUsers() {
+  let div = document.getElementById("users");
+
+  let res = await fetch("http://localhost:5000/admin/users");
+  let data = await res.json();
+
+  console.log("Users:", data);
+
+  div.innerHTML = "";
+
+  data.forEach(u => {
+    div.innerHTML += `
+      <div class="card">
+        <h3>${u.name}</h3>
+        <p>Wallet: ₹${u.wallet}</p>
+      </div>
+    `;
+  });
+}
+
+// 🔥 CALL FUNCTIONS
+loadAdminStats();
+loadAllOrders();
+loadUsers();
+</script>
+</body>
+</html>

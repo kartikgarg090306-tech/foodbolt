@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Menu</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Menu</h1>
+
+<div class="navbar">
+  <div class="logo">Menu</div>
+</div>
+
+<div id="menu" class="grid"></div>
+
+<div id="cartBtnContainer" style="text-align:center; display:none;">
+  <button class="btn" onclick="window.location='cart.html'">
+    Go to Cart 🛒
+  </button>
+</div>
+
+<script src="script.js"></script>
+<script>
+  loadCart();
+  showUser();
+</script>
+</body>
+<div class="bottom-nav">
+  <div class="nav-item" onclick="goHome()">🏠 Home</div>
+  <div class="nav-item" onclick="goOrders()">📜 Orders</div>
+  <div class="nav-item" onclick="goLogin()">🔑 Login</div>
+  <div class="nav-item" onclick="logout()">🚪 Logout</div>
+</div>
+</html>
