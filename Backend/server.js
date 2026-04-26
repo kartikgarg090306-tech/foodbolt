@@ -136,7 +136,9 @@ app.get("/admin/users", async (req, res) => {
   res.json(data);
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
+
+console.log("ENV PORT:", process.env.PORT);
 
 app.listen(PORT, () => {
   console.log("🔥 Server running on", PORT);
